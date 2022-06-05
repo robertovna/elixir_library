@@ -24,6 +24,7 @@ defmodule GayaneLibrary.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import GayaneLibrary.DataCase
+      import GayaneLibrary.Factories
     end
   end
 
