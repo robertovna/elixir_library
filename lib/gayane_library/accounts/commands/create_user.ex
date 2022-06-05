@@ -3,7 +3,7 @@ defmodule GayaneLibrary.Accounts.Commands.CreateUser do
   Defines create user command
   """
 
-  alias GayaneLibrary.Accounts.Entitites.User
+  alias GayaneLibrary.Accounts.Entities.User
   alias GayaneLibrary.Repo
 
   def process(attrs) do

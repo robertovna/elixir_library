@@ -1,4 +1,4 @@
-defmodule GayaneLibrary.Accounts.Entitites.User do
+defmodule GayaneLibrary.Accounts.Entities.User do
   @moduledoc false
 
   use Ecto.Schema

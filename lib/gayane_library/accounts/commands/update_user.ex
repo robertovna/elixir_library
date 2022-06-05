@@ -3,7 +3,7 @@ defmodule GayaneLibrary.Accounts.Commands.UpdateUser do
   Defines update user command
   """
 
-  alias GayaneLibrary.Accounts.Entitites.User
+  alias GayaneLibrary.Accounts.Entities.User
   alias GayaneLibrary.Repo
 
   def process(%User{} = user, attrs) do

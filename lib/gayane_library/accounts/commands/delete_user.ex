@@ -2,7 +2,7 @@ defmodule GayaneLibrary.Accounts.Commands.DeleteUser do
   @moduledoc """
   Defines delete user command
   """
-  alias GayaneLibrary.Accounts.Entitites.User
+  alias GayaneLibrary.Accounts.Entities.User
   alias GayaneLibrary.Repo
 
   def process(%User{} = user) do
