@@ -4,7 +4,7 @@ defmodule GayaneLibrary.Repo.Migrations.CreateTags do
   def change do
     create table(:tags) do
       add :name, :string, null: false
-      add :description, :string, default: ""
+      add :description, :text, default: ""
 
       timestamps()
     end
