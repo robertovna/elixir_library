@@ -4,7 +4,8 @@ defmodule GayaneLibrary.Factories do
   """
   use ExMachina.Ecto, repo: GayaneLibrary.Repo
 
-  use GayaneLibrary.Factories.Accounts.{
-    UserFactory
+  use GayaneLibrary.Factories.{
+    Accounts.UserFactory,
+    Books.BookFactory
   }
 end
