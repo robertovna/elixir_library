@@ -7,6 +7,7 @@ defmodule GayaneLibrary.Factories do
   use GayaneLibrary.Factories.{
     Accounts.UserFactory,
     Books.BookFactory,
-    Tags.TagFactory
+    Tags.TagFactory,
+    Comments.CommentFactory
   }
 end
