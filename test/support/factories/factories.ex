@@ -6,6 +6,7 @@ defmodule GayaneLibrary.Factories do
 
   use GayaneLibrary.Factories.{
     Accounts.UserFactory,
-    Books.BookFactory
+    Books.BookFactory,
+    Tags.TagFactory
   }
 end
