@@ -9,6 +9,7 @@ defmodule GayaneLibrary.Factories do
     Books.BookFactory,
     Tags.TagFactory,
     Comments.CommentFactory,
-    CommentLikes.CommentLikeFactory
+    CommentLikes.CommentLikeFactory,
+    BookLikes.BookLikeFactory
   }
 end
