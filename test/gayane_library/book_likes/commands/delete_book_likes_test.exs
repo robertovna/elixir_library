@@ -1,4 +1,3 @@
-
 defmodule GayaneLibrary.BookLikes.Commands.DeleteBookLikeTest do
   use GayaneLibrary.DataCase
 
