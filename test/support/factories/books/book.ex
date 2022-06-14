@@ -28,6 +28,7 @@ defmodule GayaneLibrary.Factories.Books.BookFactory do
 
         hidden = Map.get(attrs, :hidden, false)
         user = Map.get(attrs, :user, insert(:user))
+        tags = Map.get(attrs, :tags, [])
 
         %Book{
           author: author,
@@ -36,7 +37,8 @@ defmodule GayaneLibrary.Factories.Books.BookFactory do
           year: year,
           edition: edition,
           hidden: hidden,
-          user: user
+          user: user,
+          tags: tags
         }
       end
     end

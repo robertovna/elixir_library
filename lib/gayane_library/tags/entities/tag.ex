@@ -7,6 +7,8 @@ defmodule GayaneLibrary.Tags.Entities.TagEntity do
 
   import Ecto.Changeset
 
+  alias GayaneLibrary.Books.Entities.Book
+
   @required [:name]
 
   @optional [:description]
@@ -14,6 +16,8 @@ defmodule GayaneLibrary.Tags.Entities.TagEntity do
   schema "tags" do
     field :name, :string
     field :description, :string
+
+    many_to_many :books, Book, join_through: "books_tags"
 
     timestamps()
   end
