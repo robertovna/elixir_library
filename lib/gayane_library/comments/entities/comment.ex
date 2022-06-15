@@ -9,6 +9,7 @@ defmodule GayaneLibrary.Comments.Entities.Comment do
 
   alias GayaneLibrary.Accounts.Entities.User
   alias GayaneLibrary.Books.Entities.Book
+  alias GayaneLibrary.CommentLikes.Entities.CommentLike
 
   @required [
     :text_content,
@@ -21,6 +22,8 @@ defmodule GayaneLibrary.Comments.Entities.Comment do
 
     belongs_to :user, User
     belongs_to :book, Book
+
+    has_many :likes, CommentLike
 
     timestamps()
   end

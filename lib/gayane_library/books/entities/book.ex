@@ -10,6 +10,8 @@ defmodule GayaneLibrary.Books.Entities.Book do
   alias GayaneLibrary.Repo
   alias GayaneLibrary.Accounts.Entities.User
   alias GayaneLibrary.Tags.Entities.TagEntity
+  alias GayaneLibrary.BookLikes.Entities.BookLike
+  alias GayaneLibrary.Comments.Entities.Comment
 
   @required [
     :name,
@@ -33,6 +35,9 @@ defmodule GayaneLibrary.Books.Entities.Book do
     field :hidden, :boolean
 
     belongs_to :user, User
+
+    has_many :likes, BookLike
+    has_many :comments, Comment
 
     many_to_many :tags, TagEntity, join_through: "books_tags"
 
