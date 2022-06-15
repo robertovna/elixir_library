@@ -39,7 +39,7 @@ defmodule GayaneLibrary.Books.Entities.Book do
     has_many :likes, BookLike
     has_many :comments, Comment
 
-    many_to_many :tags, TagEntity, join_through: "books_tags"
+    many_to_many :tags, TagEntity, join_through: BookTag
 
     timestamps()
   end
