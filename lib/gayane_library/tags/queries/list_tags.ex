@@ -6,7 +6,7 @@ defmodule GayaneLibrary.Tags.Queries.ListTags do
   alias GayaneLibrary.Repo
   alias GayaneLibrary.Tags.Entities.TagEntity
 
-  def process() do
+  def process do
     Repo.all(TagEntity)
   end
 end

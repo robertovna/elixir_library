@@ -7,11 +7,11 @@ defmodule GayaneLibrary.Books.Entities.Book do
 
   import Ecto.Changeset
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.Accounts.Entities.User
-  alias GayaneLibrary.Tags.Entities.TagEntity
   alias GayaneLibrary.BookLikes.Entities.BookLike
   alias GayaneLibrary.Comments.Entities.Comment
+  alias GayaneLibrary.Repo
+  alias GayaneLibrary.Tags.Entities.TagEntity
 
   @required [
     :name,

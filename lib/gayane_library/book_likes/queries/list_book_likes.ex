@@ -4,8 +4,8 @@ defmodule GayaneLibrary.BookLikes.Queries.ListBookLikes do
   """
   import Ecto.Query, only: [from: 2]
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.BookLikes.Entities.BookLike
+  alias GayaneLibrary.Repo
 
   def process(book) do
     BookLike

@@ -4,8 +4,8 @@ defmodule GayaneLibrary.Books.Queries.ListBooks do
   """
   import Ecto.Query, only: [from: 2]
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.Books.Entities.Book
+  alias GayaneLibrary.Repo
 
   def process(params) do
     Book

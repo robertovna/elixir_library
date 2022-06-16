@@ -3,9 +3,7 @@ defmodule GayaneLibrary.Tags do
   Describes the context of the tag_entity
   """
 
-  alias GayaneLibrary.Tags.Commands.{
-    CreateTag
-  }
+  alias GayaneLibrary.Tags.Commands.CreateTag
 
   alias GayaneLibrary.Tags.Queries.{
     GetTag,

@@ -3,8 +3,8 @@ defmodule GayaneLibrary.Tags.Commands.CreateTag do
   Defines create tag command
   """
 
-  alias GayaneLibrary.Tags.Entities.TagEntity
   alias GayaneLibrary.Repo
+  alias GayaneLibrary.Tags.Entities.TagEntity
 
   def process(attrs) do
     %TagEntity{}

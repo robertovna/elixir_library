@@ -3,8 +3,8 @@ defmodule GayaneLibrary.BookLikes.Queries.GetBookLike do
   GetBookLike Query find book_like by id
   """
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.BookLikes.Entities.BookLike
+  alias GayaneLibrary.Repo
 
   def process(id) do
     Repo.find(BookLike, id)

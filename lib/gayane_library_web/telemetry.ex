@@ -1,4 +1,7 @@
 defmodule GayaneLibraryWeb.Telemetry do
+  @moduledoc """
+  Telemetry is a lightweight library for dynamic dispatching of events, with a focus on metrics and instrumentation.
+  """
   use Supervisor
   import Telemetry.Metrics
 

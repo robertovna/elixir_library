@@ -3,8 +3,8 @@ defmodule GayaneLibrary.CommentLikes.Queries.GetCommentLike do
   GetCommentLike Query find comment_like by id
   """
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.CommentLikes.Entities.CommentLike
+  alias GayaneLibrary.Repo
 
   def process(id) do
     Repo.find(CommentLike, id)

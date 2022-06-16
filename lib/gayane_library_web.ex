@@ -23,8 +23,8 @@ defmodule GayaneLibraryWeb do
 
       import Plug.Conn
 
-      alias Plug.Conn
       alias GayaneLibraryWeb.Router.Helpers, as: Routes
+      alias Plug.Conn
     end
   end
 

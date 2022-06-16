@@ -3,8 +3,8 @@ defmodule GayaneLibrary.Accounts.Queries.GetUser do
   GetUser Query find user by id
   """
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.Accounts.Entities.User
+  alias GayaneLibrary.Repo
 
   def process(id) do
     Repo.find(User, id)

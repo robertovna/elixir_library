@@ -4,8 +4,8 @@ defmodule GayaneLibrary.CommentLikes.Queries.ListCommentLikes do
   """
   import Ecto.Query, only: [from: 2]
 
-  alias GayaneLibrary.Repo
   alias GayaneLibrary.CommentLikes.Entities.CommentLike
+  alias GayaneLibrary.Repo
 
   def process(comment) do
     CommentLike
