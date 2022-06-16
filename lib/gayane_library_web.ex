@@ -22,6 +22,8 @@ defmodule GayaneLibraryWeb do
       use Phoenix.Controller, namespace: GayaneLibraryWeb
 
       import Plug.Conn
+
+      alias Plug.Conn
       alias GayaneLibraryWeb.Router.Helpers, as: Routes
     end
   end
