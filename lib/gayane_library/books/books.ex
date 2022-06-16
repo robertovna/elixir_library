@@ -21,5 +21,5 @@ defmodule GayaneLibrary.Books do
 
   # Queries
   defdelegate get_book(id), to: GetBook, as: :process
-  defdelegate list_books(), to: ListBooks, as: :process
+  defdelegate list_books(params \\ %{}), to: ListBooks, as: :process
 end
