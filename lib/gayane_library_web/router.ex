@@ -12,6 +12,7 @@ defmodule GayaneLibraryWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug ProperCase.Plug.SnakeCaseParams
   end
 
   scope "/", GayaneLibraryWeb do
@@ -21,7 +22,9 @@ defmodule GayaneLibraryWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GayaneLibraryWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v1", GayaneLibraryWeb.V1 do
+    pipe_through :api
+
+    resources "/books", BookController, only: [:index, :show]
+  end
 end
