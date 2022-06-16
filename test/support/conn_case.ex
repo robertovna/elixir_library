@@ -23,6 +23,7 @@ defmodule GayaneLibraryWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import GayaneLibraryWeb.ConnCase
+      import GayaneLibrary.Factories
 
       alias GayaneLibraryWeb.Router.Helpers, as: Routes
 
