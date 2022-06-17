@@ -15,7 +15,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooks do
     |> with_edition(params)
     |> with_year(params)
     |> with_greater_likes(params)
-    |> Repo.all()
+    |> Repo.paginate(params)
   end
 
   defp with_name(query, %{name: nil}), do: query
