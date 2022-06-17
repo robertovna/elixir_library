@@ -2,6 +2,7 @@ defmodule GayaneLibraryWeb.V1.BookController do
   use GayaneLibraryWeb, :controller
 
   alias GayaneLibrary.Books
+  alias GayaneLibraryWeb.V1.BookPolicy
 
   action_fallback(GayaneLibraryWeb.FallbackController)
 
@@ -11,7 +12,10 @@ defmodule GayaneLibraryWeb.V1.BookController do
   end
 
   def show(conn, %{"id" => id}) do
-    with {:ok, book} <- Books.get_book(id) do
+    user = conn.assigns.current_user
+
+    with {:ok, book} <- Books.get_book(id),
+         :ok <- Bodyguard.permit(BookPolicy, :show, user, book) do
       render(conn, "show.json", %{book: book})
     end
   end
