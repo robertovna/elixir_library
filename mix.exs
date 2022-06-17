@@ -61,7 +61,9 @@ defmodule GayaneLibrary.MixProject do
       # pagination
       {:scrivener_ecto, "~> 2.0"},
       # Email struct via ecto
-      {:email_ecto_type, "~> 0.1"}
+      {:email_ecto_type, "~> 0.1"},
+      # params validation
+      {:params, "~> 2.2"}
     ]
   end
 
