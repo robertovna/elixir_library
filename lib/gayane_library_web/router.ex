@@ -21,6 +21,7 @@ defmodule GayaneLibraryWeb.Router do
 
   pipeline :ensure_auth do
     plug Guardian.Plug.EnsureAuthenticated
+    plug GayaneLibraryWeb.CurrentUserPlug
   end
 
   scope "/", GayaneLibraryWeb do
