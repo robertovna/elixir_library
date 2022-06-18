@@ -2,6 +2,7 @@ defmodule GayaneLibraryWeb.FallbackController do
   use GayaneLibraryWeb, :controller
 
   alias Ecto.Changeset
+  alias GayaneLibraryWeb.ErrorView
 
   def call(%Conn{} = conn, {:error, :not_found}) do
     conn

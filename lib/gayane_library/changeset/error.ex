@@ -4,7 +4,7 @@ defmodule GayaneLibrary.Changeset.Error do
   """
   @derive Jason.Encoder
   @enforce_keys [:code]
-  defstruct [:code, :details]
+  defstruct [:code, :field, :details]
 
   def auth_error(reason) do
     %__MODULE__{code: "authentication", details: reason}
