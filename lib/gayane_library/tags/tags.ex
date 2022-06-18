@@ -15,5 +15,5 @@ defmodule GayaneLibrary.Tags do
 
   # Queries
   defdelegate get_tag(id), to: GetTag, as: :process
-  defdelegate list_tags(), to: ListTags, as: :process
+  defdelegate list_tags(params \\ %{}), to: ListTags, as: :process
 end

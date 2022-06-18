@@ -5,7 +5,7 @@ defmodule GayaneLibrary.Tags.Queries.ListTagsTest do
 
   test "process/1 list_tags test" do
     insert_list(10, :tag)
-    result = Tags.list_tags()
+    %{entries: result} = Tags.list_tags()
     assert length(result) == 10
   end
 end
