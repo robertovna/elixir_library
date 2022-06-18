@@ -25,3 +25,6 @@ config :logger, level: :warn
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :gayane_library, GayaneLibrary.Accounts.Services.Guardian,
+  secret_key: "SefPyYIoJpfX8NvIAJSPJN5FKQOFPi6cO2hqnUMPbEXg8APXYAiKhxa5va6yuV5O"

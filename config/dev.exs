@@ -10,6 +10,9 @@ config :gayane_library, GayaneLibrary.Repo,
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
+config :gayane_library, GayaneLibrary.Accounts.Services.Guardian,
+  secret_key: "Xr8Gicf8ATGw0y1kXK1TqHvJ7LwPDU/NaqvN6bgTQwjbkAdEh5EfzzjLFSmTTR9B"
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
