@@ -19,5 +19,5 @@ defmodule GayaneLibrary.BookLikes do
 
   # Queries
   defdelegate get_book_like(id), to: GetBookLike, as: :process
-  defdelegate list_book_likes(book), to: ListBookLikes, as: :process
+  defdelegate list_book_likes(book, params \\ %{}), to: ListBookLikes, as: :process
 end

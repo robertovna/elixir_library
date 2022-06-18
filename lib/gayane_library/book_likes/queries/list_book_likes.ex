@@ -7,10 +7,10 @@ defmodule GayaneLibrary.BookLikes.Queries.ListBookLikes do
   alias GayaneLibrary.BookLikes.Entities.BookLike
   alias GayaneLibrary.Repo
 
-  def process(book) do
+  def process(book, params) do
     BookLike
     |> by_book(book.id)
-    |> Repo.all()
+    |> Repo.paginate(params)
   end
 
   defp by_book(query, book_id) do
