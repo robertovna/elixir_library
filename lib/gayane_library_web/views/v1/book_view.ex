@@ -17,4 +17,16 @@ defmodule GayaneLibraryWeb.V1.BookView do
       name: book.name
     }
   end
+
+  def render("create.json", %{book: book}) do
+    %{
+      id: book.id,
+      name: book.name,
+      edition: book.edition,
+      text_content: book.text_content,
+      year: book.year,
+      user_id: book.user_id,
+      author: book.author
+    }
+  end
 end

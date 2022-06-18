@@ -31,4 +31,46 @@ defmodule GayaneLibraryWeb.V1.BookControllerTest do
                "total_pages" => 1
              }
   end
+
+  test "create/2 creates book", %{conn: conn, user: user} do
+    attrs = %{
+      "name" => "Some book name",
+      "text_content" => "I am text content. Read me!",
+      "year" => 1233,
+      "author" => "Some Author",
+      "edition" => "My Studio"
+    }
+
+    response =
+      conn
+      |> post(book_path(conn, :create), attrs)
+      |> json_response(201)
+
+    assert response == %{
+             "name" => attrs["name"],
+             "text_content" => attrs["text_content"],
+             "year" => attrs["year"],
+             "author" => attrs["author"],
+             "user_id" => user.id,
+             "edition" => attrs["edition"],
+             "id" => response["id"]
+           }
+  end
+
+  test "create/2 creates book with error", %{conn: conn} do
+    attrs = %{
+      "name" => "",
+      "text_content" => "I am text content. Read me!",
+      "year" => 1233,
+      "author" => "Some Author",
+      "edition" => "My Studio"
+    }
+
+    response =
+      conn
+      |> post(book_path(conn, :create), attrs)
+      |> json_response(422)
+
+    assert response == %{"errors" => [%{"code" => "can't be blank", "field" => "name"}]}
+  end
 end
