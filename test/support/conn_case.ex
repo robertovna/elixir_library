@@ -25,10 +25,21 @@ defmodule GayaneLibraryWeb.ConnCase do
       import GayaneLibraryWeb.ConnCase
       import GayaneLibrary.Factories
 
+      alias GayaneLibrary.Accounts.{
+        Entities.User,
+        Services.Guardian
+      }
+
       alias GayaneLibraryWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
       @endpoint GayaneLibraryWeb.Endpoint
+
+      def as_user(conn, %User{} = user) do
+        {:ok, token, _} = Guardian.encode_and_sign(user, %{}, token_type: :access)
+
+        Plug.Conn.put_req_header(conn, "authorization", "bearer: " <> token)
+      end
     end
   end
 
