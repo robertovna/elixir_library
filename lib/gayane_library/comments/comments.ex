@@ -11,5 +11,5 @@ defmodule GayaneLibrary.Comments do
   defdelegate create_comment(attrs), to: CreateComment, as: :process
 
   # Queries
-  defdelegate get_book_comments(book), to: GetBookComments, as: :process
+  defdelegate get_book_comments(book, params \\ %{}), to: GetBookComments, as: :process
 end

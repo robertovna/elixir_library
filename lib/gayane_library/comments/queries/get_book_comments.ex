@@ -7,11 +7,11 @@ defmodule GayaneLibrary.Comments.Queries.GetBookComments do
   alias GayaneLibrary.Comments.Entities.Comment
   alias GayaneLibrary.Repo
 
-  def process(book) do
+  def process(book, params) do
     Comment
     |> by_book(book.id)
     |> select_fields()
-    |> Repo.all()
+    |> Repo.paginate(params)
   end
 
   defp by_book(query, book_id) do
