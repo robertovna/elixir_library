@@ -15,6 +15,14 @@ defmodule GayaneLibraryWeb.Router do
     plug ProperCase.Plug.SnakeCaseParams
   end
 
+  pipeline :user_auth do
+    plug GayaneLibrary.Accounts.Guardian.Pipeline
+  end
+
+  pipeline :ensure_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   scope "/", GayaneLibraryWeb do
     pipe_through :browser
 
@@ -23,7 +31,11 @@ defmodule GayaneLibraryWeb.Router do
 
   # Other scopes may use custom stacks.
   scope "/api/v1", GayaneLibraryWeb.V1 do
-    pipe_through :api
+    pipe_through [:api]
+
+    post "/users", UserController, :create
+
+    pipe_through [:user_auth, :ensure_auth]
 
     resources "/books", BookController, only: [:index, :show]
   end
