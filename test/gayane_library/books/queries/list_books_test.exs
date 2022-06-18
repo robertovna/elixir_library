@@ -3,7 +3,6 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
 
   alias GayaneLibrary.Books
 
-  @tag :kek
   test "process/1 list_books test" do
     insert_list(10, :book)
     %{entries: result} = Books.list_books()
