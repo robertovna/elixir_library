@@ -19,5 +19,5 @@ defmodule GayaneLibrary.CommentLikes do
 
   # Queries
   defdelegate get_comment_like(id), to: GetCommentLike, as: :process
-  defdelegate list_comment_likes(comment), to: ListCommentLikes, as: :process
+  defdelegate list_comment_likes(comment, params \\ %{}), to: ListCommentLikes, as: :process
 end

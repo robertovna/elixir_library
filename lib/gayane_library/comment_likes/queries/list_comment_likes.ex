@@ -7,10 +7,10 @@ defmodule GayaneLibrary.CommentLikes.Queries.ListCommentLikes do
   alias GayaneLibrary.CommentLikes.Entities.CommentLike
   alias GayaneLibrary.Repo
 
-  def process(comment) do
+  def process(comment, params) do
     CommentLike
     |> by_comment(comment.id)
-    |> Repo.all()
+    |> Repo.paginate(params)
   end
 
   defp by_comment(query, comment_id) do
