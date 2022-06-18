@@ -6,7 +6,8 @@ defmodule GayaneLibrary.Accounts.Queries.ListUsers do
   alias GayaneLibrary.Accounts.Entities.User
   alias GayaneLibrary.Repo
 
-  def process do
-    Repo.all(User)
+  def process(params) do
+    User
+    |> Repo.paginate(params)
   end
 end

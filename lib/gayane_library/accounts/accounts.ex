@@ -21,5 +21,5 @@ defmodule GayaneLibrary.Accounts do
 
   # Queries
   defdelegate get_user(id), to: GetUser, as: :process
-  defdelegate list_users(), to: ListUsers, as: :process
+  defdelegate list_users(params \\ %{}), to: ListUsers, as: :process
 end
