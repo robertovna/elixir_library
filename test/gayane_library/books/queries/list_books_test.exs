@@ -3,9 +3,10 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
 
   alias GayaneLibrary.Books
 
+  @tag :kek
   test "process/1 list_books test" do
     insert_list(10, :book)
-    result = Books.list_books()
+    %{entries: result} = Books.list_books()
     assert length(result) == 10
   end
 
@@ -13,7 +14,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
     insert_list(5, :book, %{name: "kitchen"})
     insert_list(10, :book, %{name: "cat"})
     attrs = %{name: "cat"}
-    result = Books.list_books(attrs)
+    %{entries: result} = Books.list_books(attrs)
     assert length(result) == 10
   end
 
@@ -21,7 +22,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
     insert_list(5, :book, %{edition: "Kitchen Studio"})
     insert_list(10, :book, %{edition: "Cat Edition"})
     attrs = %{edition: "edition"}
-    result = Books.list_books(attrs)
+    %{entries: result} = Books.list_books(attrs)
     assert length(result) == 10
   end
 
@@ -29,7 +30,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
     insert_list(10, :book, %{author: "Leo Smith"})
     insert_list(5, :book, %{author: "Sandy Brown"})
     attrs = %{author: "Leo"}
-    result = Books.list_books(attrs)
+    %{entries: result} = Books.list_books(attrs)
     assert length(result) == 10
   end
 
@@ -37,7 +38,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
     insert_list(10, :book, %{year: 1814})
     insert_list(5, :book, %{year: 1899})
     attrs = %{year_greater_than: 1851}
-    result = Books.list_books(attrs)
+    %{entries: result} = Books.list_books(attrs)
     assert length(result) == 5
   end
 
@@ -49,7 +50,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
     insert_list(10, :book_like, %{book: book2})
 
     attrs = %{likes_greater_than: 8}
-    result = Books.list_books(attrs)
+    %{entries: result} = Books.list_books(attrs)
     assert length(result) == 1
   end
 
@@ -60,7 +61,7 @@ defmodule GayaneLibrary.Books.Queries.ListBooksTest do
     insert_list(10, :book, %{tags: [tag]})
 
     attrs = %{tags: [tag1]}
-    result = Books.list_books(attrs)
+    %{entries: result} = Books.list_books(attrs)
     assert length(result) == 1
   end
 end
