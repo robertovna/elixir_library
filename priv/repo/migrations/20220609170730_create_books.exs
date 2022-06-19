@@ -8,7 +8,6 @@ defmodule GayaneLibrary.Repo.Migrations.CreateBooks do
       add :text_content, :text
       add :year, :integer
       add :edition, :string, default: ""
-      add :hidden, :boolean, default: false, null: false
       add :user_id, references(:users)
 
       timestamps()

@@ -22,8 +22,7 @@ defmodule GayaneLibrary.Books.Entities.Book do
 
   @optional [
     :author,
-    :edition,
-    :hidden
+    :edition
   ]
 
   schema "books" do
@@ -32,7 +31,6 @@ defmodule GayaneLibrary.Books.Entities.Book do
     field :text_content, :string
     field :year, :integer
     field :edition, :string
-    field :hidden, :boolean
 
     belongs_to :user, User
 

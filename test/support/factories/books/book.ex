@@ -26,7 +26,6 @@ defmodule GayaneLibrary.Factories.Books.BookFactory do
           Map.get(attrs, :edition, Lorem.characters(8..32))
           |> to_string()
 
-        hidden = Map.get(attrs, :hidden, false)
         user = Map.get(attrs, :user, insert(:user))
         tags = Map.get(attrs, :tags, [])
 
@@ -36,7 +35,6 @@ defmodule GayaneLibrary.Factories.Books.BookFactory do
           text_content: text_content,
           year: year,
           edition: edition,
-          hidden: hidden,
           user: user,
           tags: tags
         }
