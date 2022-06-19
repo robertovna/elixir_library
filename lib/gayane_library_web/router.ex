@@ -44,5 +44,7 @@ defmodule GayaneLibraryWeb.Router do
     resources "/books", BookController, only: [:index, :show, :create, :update, :delete]
 
     resources "/tags", TagController, only: [:index, :show, :create]
+
+    resources "/comments", CommentController, only: [:index, :show, :create]
   end
 end
