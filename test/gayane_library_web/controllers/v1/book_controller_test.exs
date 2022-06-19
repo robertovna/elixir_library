@@ -97,6 +97,20 @@ defmodule GayaneLibraryWeb.V1.BookControllerTest do
            }
   end
 
+  test "show/2 show book", %{conn: conn, user: _user} do
+    book = insert(:book)
+
+    response =
+      conn
+      |> get(book_path(conn, :show, book))
+      |> json_response(200)
+
+    assert response == %{
+             "name" => book.name,
+             "id" => book.id
+           }
+  end
+
   test "update/2 update book with other user", %{conn: conn, user: _user} do
     other_user = insert(:user)
     book = insert(:book, %{user: other_user})
