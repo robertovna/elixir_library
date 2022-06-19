@@ -38,6 +38,6 @@ defmodule GayaneLibraryWeb.Router do
 
     pipe_through [:user_auth, :ensure_auth]
 
-    resources "/books", BookController, only: [:index, :show, :create, :update]
+    resources "/books", BookController, only: [:index, :show, :create, :update, :delete]
   end
 end

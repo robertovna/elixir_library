@@ -112,4 +112,27 @@ defmodule GayaneLibraryWeb.V1.BookControllerTest do
 
     assert response == %{"errors" => ["You are not authorized to perform this action."]}
   end
+
+  test "delete/1 delete book", %{conn: conn, user: user} do
+    book = insert(:book, %{user: user})
+
+    response =
+      conn
+      |> delete(book_path(conn, :delete, book))
+      |> json_response(200)
+
+    assert response == %{"name" => book.name, "message" => "Book successfully deleted!"}
+  end
+
+  test "delete/1 delete book with other user", %{conn: conn, user: _user} do
+    other_user = insert(:user)
+    book = insert(:book, %{user: other_user})
+
+    response =
+      conn
+      |> delete(book_path(conn, :delete, book))
+      |> json_response(403)
+
+    assert response == %{"errors" => ["You are not authorized to perform this action."]}
+  end
 end

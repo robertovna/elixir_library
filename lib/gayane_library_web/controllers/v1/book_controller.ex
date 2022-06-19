@@ -92,4 +92,14 @@ defmodule GayaneLibraryWeb.V1.BookController do
       |> render("update.json", %{book: book})
     end
   end
+
+  def delete(conn, %{"current_user" => current_user, "id" => id}) do
+    with {:ok, book} <- Books.get_book(id),
+         :ok <- Bodyguard.permit(BookPolicy, :delete, current_user, book),
+         {:ok, book} <- Books.delete_book(book) do
+      conn
+      |> put_status(:ok)
+      |> render("delete.json", %{book: book})
+    end
+  end
 end

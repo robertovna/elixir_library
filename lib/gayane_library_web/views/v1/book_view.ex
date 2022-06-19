@@ -41,4 +41,11 @@ defmodule GayaneLibraryWeb.V1.BookView do
       author: book.author
     }
   end
+
+  def render("delete.json", %{book: book}) do
+    %{
+      message: "Book successfully deleted!",
+      name: book.name
+    }
+  end
 end
