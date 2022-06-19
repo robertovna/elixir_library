@@ -42,5 +42,7 @@ defmodule GayaneLibraryWeb.Router do
     delete "/users/:id", UserController, :delete
 
     resources "/books", BookController, only: [:index, :show, :create, :update, :delete]
+
+    resources "/tags", TagController, only: [:index, :show, :create]
   end
 end
