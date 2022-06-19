@@ -10,7 +10,7 @@ defmodule GayaneLibrary.Comments.Queries.GetBookComments do
   def process(book, params) do
     Comment
     |> by_book(book.id)
-    |> select_fields()
+    |> order_comments()
     |> Repo.paginate(params)
   end
 
@@ -19,9 +19,8 @@ defmodule GayaneLibrary.Comments.Queries.GetBookComments do
       where: comment.book_id == ^book_id
   end
 
-  defp select_fields(query) do
+  defp order_comments(query) do
     from comment in query,
-      order_by: [asc: :inserted_at],
-      select: %{id: comment.id, user_id: comment.user_id, book_id: comment.book_id}
+      order_by: [asc: :inserted_at]
   end
 end
