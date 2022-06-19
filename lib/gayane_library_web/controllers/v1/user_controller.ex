@@ -44,4 +44,13 @@ defmodule GayaneLibraryWeb.V1.UserController do
       |> render("update.json", %{user: user})
     end
   end
+
+  def delete(conn, %{"current_user" => current_user}) do
+    with {:ok, user} <- Accounts.get_user(current_user.id),
+         {:ok, user} <- Accounts.delete_user(user) do
+      conn
+      |> put_status(:ok)
+      |> render("delete.json", %{user: user})
+    end
+  end
 end

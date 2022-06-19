@@ -45,4 +45,13 @@ defmodule GayaneLibraryWeb.V1.UserControllerTest do
              }
            }
   end
+
+  test "delete/1 delete user", %{conn: conn, user: user} do
+    response =
+      conn
+      |> delete(user_path(conn, :delete, user))
+      |> json_response(200)
+
+    assert response == %{"message" => "User successfully deleted!"}
+  end
 end

@@ -24,4 +24,10 @@ defmodule GayaneLibraryWeb.V1.UserView do
       }
     }
   end
+
+  def render("delete.json", %{user: _user}) do
+    %{
+      message: "User successfully deleted!"
+    }
+  end
 end
