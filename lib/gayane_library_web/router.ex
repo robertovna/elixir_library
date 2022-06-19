@@ -38,6 +38,9 @@ defmodule GayaneLibraryWeb.Router do
 
     pipe_through [:user_auth, :ensure_auth]
 
+    patch "/users/:id", UserController, :update
+    delete "/users/:id", UserController, :delete
+
     resources "/books", BookController, only: [:index, :show, :create, :update, :delete]
   end
 end

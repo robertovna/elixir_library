@@ -14,4 +14,14 @@ defmodule GayaneLibraryWeb.V1.UserView do
       }
     }
   end
+
+  def render("update.json", %{
+        user: user
+      }) do
+    %{
+      user: %{
+        email: user.email
+      }
+    }
+  end
 end
