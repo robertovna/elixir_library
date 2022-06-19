@@ -8,6 +8,10 @@ defmodule GayaneLibraryWeb.V1.BookPolicy do
   alias GayaneLibrary.Books.Entities.Book
 
   def authorize(action, %User{id: id}, %Book{user_id: id})
+      when action in [:update, :delete],
+      do: :ok
+
+  def authorize(action, %User{id: _id}, %Book{user_id: _other_id})
       when action in [:show],
       do: :ok
 

@@ -73,4 +73,43 @@ defmodule GayaneLibraryWeb.V1.BookControllerTest do
 
     assert response == %{"errors" => [%{"code" => "can't be blank", "field" => "name"}]}
   end
+
+  test "update/2 update book", %{conn: conn, user: user} do
+    book = insert(:book, %{user: user})
+
+    attrs = %{
+      "name" => "Some book name"
+    }
+
+    response =
+      conn
+      |> patch(book_path(conn, :update, book, attrs))
+      |> json_response(200)
+
+    assert response == %{
+             "name" => attrs["name"],
+             "text_content" => book.text_content,
+             "year" => book.year,
+             "author" => book.author,
+             "user_id" => user.id,
+             "edition" => book.edition,
+             "id" => book.id
+           }
+  end
+
+  test "update/2 update book with other user", %{conn: conn, user: _user} do
+    other_user = insert(:user)
+    book = insert(:book, %{user: other_user})
+
+    attrs = %{
+      "name" => "Some book name"
+    }
+
+    response =
+      conn
+      |> patch(book_path(conn, :update, book, attrs))
+      |> json_response(403)
+
+    assert response == %{"errors" => ["You are not authorized to perform this action."]}
+  end
 end

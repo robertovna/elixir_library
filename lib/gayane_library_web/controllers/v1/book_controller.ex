@@ -41,6 +41,22 @@ defmodule GayaneLibraryWeb.V1.BookController do
     }
   end
 
+  defmodule UpdateBookParams do
+    use Params.Schema, %{
+      name: :string,
+      author: :string,
+      edition: :string,
+      text_content: :string,
+      year: :integer,
+      tags: [
+        %{
+          name: :string,
+          description: :string
+        }
+      ]
+    }
+  end
+
   def index(conn, params) do
     with {:ok, params} <- ApplyParams.do_apply(IndexBookSearchParams, params) do
       page = Books.list_books(params)
@@ -62,6 +78,18 @@ defmodule GayaneLibraryWeb.V1.BookController do
       conn
       |> put_status(:created)
       |> render("create.json", %{book: book})
+    end
+  end
+
+  def update(conn, %{"current_user" => current_user, "id" => id} = attrs) do
+    with {:ok, attrs} <- ApplyParams.do_apply(UpdateBookParams, attrs),
+         attrs <- Map.put(attrs, :user_id, current_user.id),
+         {:ok, book} <- Books.get_book(id),
+         :ok <- Bodyguard.permit(BookPolicy, :update, current_user, book),
+         {:ok, book} <- Books.update_book(book, attrs) do
+      conn
+      |> put_status(:ok)
+      |> render("update.json", %{book: book})
     end
   end
 end
